@@ -11,7 +11,9 @@ public class Car {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private String brand;
+    @ManyToOne
+    @JoinColumn(name = "brand_id", nullable = false)
+    private Brand brand;
 
     private String model;
 
@@ -32,11 +34,11 @@ public class Car {
         this.id = id;
     }
 
-    public String getBrand() {
+    public Brand getBrand() {
         return brand;
     }
 
-    public void setBrand(String brand) {
+    public void setBrand(Brand brand) {
         this.brand = brand;
     }
 
@@ -106,7 +108,7 @@ public class Car {
         return this;
     }
 
-    public Car brand(String brand) {
+    public Car brand(Brand brand) {
         this.brand = brand;
         return this;
     }
